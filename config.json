@@ -1,0 +1,27 @@
+{
+	// Program Settings
+	"save_images": "No",
+	"filter_training_period": "Yes",
+	"training_data_start_date": "2020-11-01", //YYYY-MM-DD
+	"training_data_end_date": "2021-01-29", //YYYY-MM-DD
+
+	// Set for at least a month
+	"degradation_data_start_date": "2020-09-01", //YYYY-MM-DD
+	"degradation_data_end_date": "2021-02-01", //YYYY-MM-DD
+
+	"public_holidays": "True",
+	"changepoint_prior_scale": 0.01,
+	"seasonality_mode": "multiplicative",
+	"forecast_days": 90,
+
+	// Analysis Settings
+	"threshold_margin": 0,
+	
+	// MSQ database credentials
+	"host": "localhost",
+	"user": "sa",
+	"passwd": "myPassw0rd",
+	"database": "AI"
+}
+
+
