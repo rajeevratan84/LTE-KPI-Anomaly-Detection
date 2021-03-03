@@ -41,7 +41,7 @@ class suppress_stdout_stderr(object):
 
 class KPIForecaster():
 
-    def __init__(self, conf, crontab = True):
+    def __init__(self, conf, crontab = False):
 		# store the configuration object
         self.conf = conf
         self.path = sys.argv[0].rsplit("/", 1)[0]
@@ -198,14 +198,19 @@ class KPIForecaster():
 
         file_name = cell + "_forecast.pkl"
         fpath = mypath + "/" + file_name
-        final_path = os.path.join(self.path,fpath)
-
+        if self.crontab :
+            final_path = os.path.join(self.path,fpath)
+        else:
+            final_path = fpath
+            pass
+        #print(final_path)
         try:
+            
             unpickled_df = pd.read_pickle(final_path)
             return True, unpickled_df
         except:
             #raise Exception("Models not found")
-            print(f'Model {file_name} not found')
+            print(f'This model {file_name} not found')
             return False, None
             
             
